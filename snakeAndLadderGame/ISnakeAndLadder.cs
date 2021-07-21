@@ -11,5 +11,6 @@ namespace snakeAndLadderGame
         public abstract void PlayOption();
         public abstract void Play();
         public abstract void PlayExact();
+        public abstract void ShowNumberDicePlayed();
     }
 }

@@ -13,6 +13,7 @@ namespace snakeAndLadderGame
             //player.PlayOption();
             //player.Play();
             player.PlayExact();
+            player.ShowNumberDicePlayed();
         }
     }
 }

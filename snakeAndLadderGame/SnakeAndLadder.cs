@@ -6,11 +6,12 @@ namespace snakeAndLadderGame
 {
     class SnakeAndLadder :ISnakeAndLadder
     {
-        private int position, diceNumber, playOption;
+        private int position, diceNumber, playOption,numberDicePlayed;
         int WIN_POSITION = 100;
         public SnakeAndLadder()
         {
             this.position = 0;
+            this.numberDicePlayed = 0;
         }
         public void ShowPosition()
         {
@@ -47,6 +48,7 @@ namespace snakeAndLadderGame
                 this.playOption = random.Next(0, 3);
                 Console.WriteLine("Player is at position :" + this.position);                
                 Console.WriteLine("Dice Rolled :" + diceNumber);
+                this.numberDicePlayed++;
                 switch (playOption)
                 {
                     case 0:
@@ -80,6 +82,7 @@ namespace snakeAndLadderGame
                 this.playOption = random.Next(0, 3);
                 Console.WriteLine("Player is at position :" + this.position);
                 Console.WriteLine("Dice Rolled :" + diceNumber);
+                this.numberDicePlayed++;
                 switch (playOption)
                 {
                     case 0:
@@ -110,6 +113,10 @@ namespace snakeAndLadderGame
                 }
             }
             Console.WriteLine("Player Wins");
+        }
+        public void ShowNumberDicePlayed()
+        {
+            Console.WriteLine("Number of times Dice was rolled to win :" + this.numberDicePlayed);
         }
     }
 }
