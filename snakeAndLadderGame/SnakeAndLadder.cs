@@ -54,7 +54,14 @@ namespace snakeAndLadderGame
                         break;
                     case 1:
                         Console.WriteLine("Ladder");
-                        this.position += this.diceNumber;
+                        if((this.WIN_POSITION-this.position) >= this.diceNumber)
+                        {
+                            this.position += this.diceNumber;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Get correct dice value to Win");
+                        }
                         break;
                     case 2:
                         Console.WriteLine("Snake");
@@ -69,6 +76,7 @@ namespace snakeAndLadderGame
                         break;
                 }
             }
+            Console.WriteLine("Player Wins");
         }
     }
 }
