@@ -10,5 +10,6 @@ namespace snakeAndLadderGame
         public abstract void DiceValue();
         public abstract void PlayOption();
         public abstract void Play();
+        public abstract void PlayExact();
     }
 }
