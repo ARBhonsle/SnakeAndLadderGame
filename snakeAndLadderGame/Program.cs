@@ -10,6 +10,8 @@ namespace snakeAndLadderGame
             ISnakeAndLadder player = new SnakeAndLadder();
             player.ShowPosition();
             player.DiceValue();
+            player.PlayOption();
+            player.ShowPosition();
         }
     }
 }

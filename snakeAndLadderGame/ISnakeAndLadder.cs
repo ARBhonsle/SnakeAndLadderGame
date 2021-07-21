@@ -8,5 +8,6 @@ namespace snakeAndLadderGame
     {
         public abstract void ShowPosition();
         public abstract void DiceValue();
+        public abstract void PlayOption();
     }
 }

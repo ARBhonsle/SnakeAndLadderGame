@@ -8,6 +8,7 @@ namespace snakeAndLadderGame
     {
         private int position;
         private int diceNumber;
+        private int playOption;
         public SnakeAndLadder()
         {
             this.position = 0;
@@ -21,6 +22,22 @@ namespace snakeAndLadderGame
             Random random = new Random();
             this.diceNumber = random.Next(0, 6) + 1;
             Console.WriteLine("Dice Rolled :" + diceNumber);   
+        }
+        public void PlayOption()
+        {
+            Random random = new Random();
+            this.playOption = random.Next(0, 3);
+            switch (playOption)
+            {
+                case 0: Console.WriteLine("No Play");
+                    break;
+                case 1: Console.WriteLine("Ladder");
+                    this.position += this.diceNumber;
+                    break;
+                case 2: Console.WriteLine("Snake");
+                    this.position -= this.diceNumber;
+                    break;
+            }
         }
     }
 }
