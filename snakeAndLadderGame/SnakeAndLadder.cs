@@ -6,14 +6,21 @@ namespace snakeAndLadderGame
 {
     class SnakeAndLadder :ISnakeAndLadder
     {
-        int position;
+        private int position;
+        private int diceNumber;
         public SnakeAndLadder()
         {
             this.position = 0;
         }
-        public void showPosition()
+        public void ShowPosition()
         {
             Console.WriteLine("Player is at position :" + this.position);
+        }
+        public void DiceValue()
+        {
+            Random random = new Random();
+            this.diceNumber = random.Next(0, 6) + 1;
+            Console.WriteLine("Dice Rolled :" + diceNumber);   
         }
     }
 }
