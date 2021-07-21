@@ -7,13 +7,14 @@ namespace snakeAndLadderGame
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Snake and Ladder Game!");
-            ISnakeAndLadder player = new SnakeAndLadder();
+            ISnakeAndLadder play = new SnakeAndLadder();
             //player.ShowPosition();
             //player.DiceValue();
             //player.PlayOption();
             //player.Play();
-            player.PlayExact();
-            player.ShowNumberDicePlayed();
+            //player.PlayExact();
+            //player.ShowNumberDicePlayed();
+            play.TwoPlayerGame();
         }
     }
 }
