@@ -42,10 +42,10 @@ namespace snakeAndLadderGame
         {
             while (this.position < this.WIN_POSITION)
             {
-                Console.WriteLine("Player is at position :" + this.position);
                 Random random = new Random();
                 this.diceNumber = random.Next(0, 6) + 1;
                 this.playOption = random.Next(0, 3);
+                Console.WriteLine("Player is at position :" + this.position);                
                 Console.WriteLine("Dice Rolled :" + diceNumber);
                 switch (playOption)
                 {
