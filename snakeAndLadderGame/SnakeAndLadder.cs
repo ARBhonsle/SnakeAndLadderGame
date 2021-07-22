@@ -6,15 +6,15 @@ namespace snakeAndLadderGame
 {
     class SnakeAndLadder :ISnakeAndLadder
     {
-        private int position, diceNumber, playOption;
-        readonly private int WIN_POSITION=100;
+
+        private int position, diceNumber, playOption,numberDicePlayed;
+        readonly int WIN_POSITION = 100;
         public SnakeAndLadder()
         {
             this.position = 0;
         }
         public void Play()
         {
-            Console.WriteLine("Player is at position :" + this.position);
             Random random = new Random();
             while (this.position < this.WIN_POSITION)
             {
@@ -29,7 +29,6 @@ namespace snakeAndLadderGame
                         break;
                     case 1:
                         Console.WriteLine("Ladder");
-                        this.position += this.diceNumber;
                         if (this.WIN_POSITION >= (this.position + this.diceNumber))
                         {
                             this.position += this.diceNumber;
@@ -52,6 +51,8 @@ namespace snakeAndLadderGame
                         break;
                 }
             }
+            Console.WriteLine("Player Wins");
+            Console.WriteLine("Number of times Dice was rolled to win :" + this.numberDicePlayed);
         }
     }
 }
