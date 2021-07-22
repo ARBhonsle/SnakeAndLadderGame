@@ -129,6 +129,7 @@ namespace snakeAndLadderGame
         public void TwoPlayerGame()
         {
             Random random = new Random();
+            Console.WriteLine("All Start at Position :" + this.position);
             while (this.position1[0] < WIN_POSITION && this.position1[1] < WIN_POSITION)
             {
                 for (int i = 0; i < 2; i++)
@@ -146,7 +147,7 @@ namespace snakeAndLadderGame
                             break;
                         case 1:
                             Console.WriteLine("Ladder");
-                            if ((this.WIN_POSITION - this.position1[i]) >= this.diceNumber1[i])
+                            if (this.WIN_POSITION >= (this.position1[i] + this.diceNumber1[i]))
                             {
                                 this.position1[i] += this.diceNumber1[i];
                             }
@@ -168,23 +169,21 @@ namespace snakeAndLadderGame
 
                             break;
                     }
-                    if (playOption1[i] == 1)
+                    if (position1[1].Equals(WIN_POSITION))
                     {
-
-                        Console.WriteLine("Get another dice roll due to ladder");
-                        this.diceNumber1[i] = random.Next(0, 6) + 1;
-                        this.playOption1[i] = random.Next(0, 3);
-                        this.numberDicePlayed1[i]++;
-                        continue;
+                        Console.WriteLine("Player 2 Wins"); break;
                     }
                     if (position1[0].Equals(WIN_POSITION))
                     {
                         Console.WriteLine("Player 1 Wins"); break;
                     }
-                    if (position1[1].Equals(WIN_POSITION))
+                    if (playOption1[i] == 1)
                     {
-                        Console.WriteLine("Player 2 Wins"); break;
+                        Console.WriteLine("Get another dice roll due to ladder");
+                        i--;
+                        continue;
                     }
+                                       
                 }
                 Console.WriteLine();
             }
