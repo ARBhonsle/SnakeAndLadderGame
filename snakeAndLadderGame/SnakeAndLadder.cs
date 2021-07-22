@@ -11,7 +11,7 @@ namespace snakeAndLadderGame
         {
             this.position = 0;
         }
-        public void showPosition()
+        public void Play()
         {
             Console.WriteLine("Player is at position :" + this.position);
         }
