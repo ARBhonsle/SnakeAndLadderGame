@@ -6,12 +6,6 @@ namespace snakeAndLadderGame
 {
     interface ISnakeAndLadder
     {
-        public abstract void ShowPosition();
-        public abstract void DiceValue();
-        public abstract void PlayOption();
         public abstract void Play();
-        public abstract void PlayExact();
-        public abstract void ShowNumberDicePlayed();
-        public abstract void TwoPlayerGame();
     }
 }
