@@ -33,7 +33,14 @@ namespace snakeAndLadderGame
                         break;
                     case 2:
                         Console.WriteLine("Snake");
+                        if (this.position > this.diceNumber)
+                        {
                             this.position -= this.diceNumber;
+                        }
+                        else
+                        {
+                            this.position = 0;
+                        }
                         break;
                 }
             }
