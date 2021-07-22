@@ -135,9 +135,9 @@ namespace snakeAndLadderGame
                 {
                     Console.WriteLine("Player: " + (i + 1));
                     Console.WriteLine("Position :" + this.position1[i]);
+                    Console.WriteLine("Dice Rolled :" + diceNumber1[i]);                    
                     this.diceNumber1[i] = random.Next(0, 6) + 1;
                     this.playOption1[i] = random.Next(0, 3);
-                    Console.WriteLine("Dice Rolled :" + diceNumber1[i]);
                     this.numberDicePlayed1[i]++;
                     switch (playOption1[i])
                     {
@@ -165,7 +165,17 @@ namespace snakeAndLadderGame
                             {
                                 this.position1[i] = 0;
                             }
+
                             break;
+                    }
+                    if (playOption1[i] == 1)
+                    {
+
+                        Console.WriteLine("Get another dice roll due to ladder");
+                        this.diceNumber1[i] = random.Next(0, 6) + 1;
+                        this.playOption1[i] = random.Next(0, 3);
+                        this.numberDicePlayed1[i]++;
+                        continue;
                     }
                     if (position1[0].Equals(WIN_POSITION))
                     {
