@@ -7,12 +7,14 @@ namespace snakeAndLadderGame
     class SnakeAndLadder :ISnakeAndLadder
     {
         private int position, diceNumber, playOption,numberDicePlayed;
-        int WIN_POSITION = 100;
+        readonly int WIN_POSITION = 100;
+
         public SnakeAndLadder()
         {
             this.position = 0;
             this.numberDicePlayed = 0;
         }
+
         public void Play()
         {
             Random random = new Random();
