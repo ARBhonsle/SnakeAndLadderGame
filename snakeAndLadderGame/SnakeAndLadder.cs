@@ -13,71 +13,11 @@ namespace snakeAndLadderGame
             this.position = 0;
             this.numberDicePlayed = 0;
         }
-        public void ShowPosition()
-        {
-            Console.WriteLine("Player is at position :" + this.position);
-        }
-        public void DiceValue()
-        {
-            Random random = new Random();
-            this.diceNumber = random.Next(0, 6) + 1;
-            Console.WriteLine("Dice Rolled :" + diceNumber);   
-        }
-        public void PlayOption()
-        {
-            Random random = new Random();
-            this.playOption = random.Next(0, 3);
-            switch (playOption)
-            {
-                case 0: Console.WriteLine("No Play");
-                    break;
-                case 1: Console.WriteLine("Ladder");
-                    this.position += this.diceNumber;
-                    break;
-                case 2: Console.WriteLine("Snake");
-                    this.position -= this.diceNumber;
-                    break;
-            }
-        }
         public void Play()
         {
+            Random random = new Random();
             while (this.position < this.WIN_POSITION)
             {
-                Random random = new Random();
-                this.diceNumber = random.Next(0, 6) + 1;
-                this.playOption = random.Next(0, 3);
-                Console.WriteLine("Player is at position :" + this.position);                
-                Console.WriteLine("Dice Rolled :" + diceNumber);
-                this.numberDicePlayed++;
-                switch (playOption)
-                {
-                    case 0:
-                        Console.WriteLine("No Play");
-                        break;
-                    case 1:
-                        Console.WriteLine("Ladder");
-                        this.position += this.diceNumber;                        
-                        break;
-                    case 2:
-                        Console.WriteLine("Snake");
-                        if (this.position > this.diceNumber)
-                        {
-                            this.position -= this.diceNumber;
-                        }
-                        else
-                        {
-                            this.position = 0;
-                        }
-                        break;
-                }
-            }
-            Console.WriteLine("Player Wins");
-        }
-        public void PlayExact()
-        {
-            while (this.position < this.WIN_POSITION)
-            {
-                Random random = new Random();
                 this.diceNumber = random.Next(0, 6) + 1;
                 this.playOption = random.Next(0, 3);
                 Console.WriteLine("Player is at position :" + this.position);
@@ -90,7 +30,7 @@ namespace snakeAndLadderGame
                         break;
                     case 1:
                         Console.WriteLine("Ladder");
-                        if ((this.WIN_POSITION - this.position) >= this.diceNumber)
+                        if (this.WIN_POSITION >= (this.position + this.diceNumber))
                         {
                             this.position += this.diceNumber;
                         }
@@ -113,9 +53,6 @@ namespace snakeAndLadderGame
                 }
             }
             Console.WriteLine("Player Wins");
-        }
-        public void ShowNumberDicePlayed()
-        {
             Console.WriteLine("Number of times Dice was rolled to win :" + this.numberDicePlayed);
         }
     }
