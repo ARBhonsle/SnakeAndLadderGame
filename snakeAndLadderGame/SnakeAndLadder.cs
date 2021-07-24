@@ -6,71 +6,71 @@ namespace snakeAndLadderGame
 {
     class SnakeAndLadder :ISnakeAndLadder
     {
-        int[] position1 = new int[2];
-        int[] diceNumber1 = new int[2];
-        int[] playOption1=new int[2];
-        int[] numberDicePlayed1=new int[2];
+        int diceValue, playOption;
+        int[] positionPlayer = new int[2];
+        int[] numberDicePlayed=new int[2];
         readonly int WIN_POSITION = 100;
+        const int NO_PLAY = 0, LADDER = 1, SNAKE = 2;
         public SnakeAndLadder()
         {
             for(int i = 0; i < 2; i++)
             {
-                this.position1[i] = 0;
-                this.numberDicePlayed1[i] = 0;
+                this.positionPlayer[i] = 0;
+                this.numberDicePlayed[i] = 0;
             }
         }
         public void Play()
         {
             Random random = new Random();
-            Console.WriteLine("All Start at Position :" + this.position1[0]);
-            while (this.position1[0] < WIN_POSITION && this.position1[1] < WIN_POSITION)
+            Console.WriteLine("All Start at Position :" + this.positionPlayer[0]);
+            while (this.positionPlayer[0] < WIN_POSITION && this.positionPlayer[1] < WIN_POSITION)
             {                
                 for (int i = 0; i < 2; i++)
                 {
                     Console.WriteLine("Player: " + (i + 1));
-                    Console.WriteLine("Dice Rolled :" + diceNumber1[i]);                    
-                    this.diceNumber1[i] = random.Next(0, 6) + 1;
-                    this.playOption1[i] = random.Next(0, 3);
-                    this.numberDicePlayed1[i]++;
-                    switch (playOption1[i])
+                    Console.WriteLine("Dice Rolled :" + diceValue);                    
+                    this.diceValue = random.Next(0, 6) + 1;
+                    this.playOption = random.Next(0, 3);
+                    this.numberDicePlayed[i]++;
+                    switch (playOption)
                     {
-                        case 0:
+                        case NO_PLAY:
                             Console.WriteLine("No Play");
                             break;
-                        case 1:
+                        case LADDER:
                             Console.WriteLine("Ladder");
-                            if (this.WIN_POSITION >= (this.position1[i] + this.diceNumber1[i]))
+                            if (this.WIN_POSITION >= (this.positionPlayer[i] + this.diceValue))
                             {
-                                this.position1[i] += this.diceNumber1[i];
+                                this.positionPlayer[i] += this.diceValue;
                             }
                             else
                             {
                                 Console.WriteLine("Get correct dice value to Win");
                             }
                             break;
-                        case 2:
+                        case SNAKE:
                             Console.WriteLine("Snake");
-                            if (this.position1[i] > this.diceNumber1[i])
+                            if (this.positionPlayer[i] > this.diceValue)
                             {
-                                this.position1[i] -= this.diceNumber1[i];
+                                this.positionPlayer[i] -= this.diceValue;
                             }
                             else
                             {
-                                this.position1[i] = 0;
+                                this.positionPlayer[i] = 0;
                             }
 
                             break;
                     }
-                    Console.WriteLine("Position :" + this.position1[i]);
-                    if (position1[1].Equals(WIN_POSITION))
+                    Console.WriteLine("Position :" + this.positionPlayer[i]);
+                    if (positionPlayer[1].Equals(WIN_POSITION))
                     {
                         Console.WriteLine("Player 2 Wins"); break;
                     }
-                    if (position1[0].Equals(WIN_POSITION))
+                    if (positionPlayer[0].Equals(WIN_POSITION))
                     {
                         Console.WriteLine("Player 1 Wins"); break;
                     }
-                    if (playOption1[i] == 1)
+                    if (playOption == LADDER)
                     {
                         Console.WriteLine("Get another dice roll due to ladder");
                         i--;
