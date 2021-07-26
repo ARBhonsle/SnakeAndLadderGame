@@ -7,6 +7,7 @@ namespace snakeAndLadderGame
     class SnakeAndLadder :ISnakeAndLadder
     {
         private int position, diceNumber, playOption;
+        const int NO_PLAY = 0, LADDER = 1, SNAKE = 2;
         int WIN_POSITION = 100;
         public SnakeAndLadder()
         {
@@ -24,14 +25,14 @@ namespace snakeAndLadderGame
                 Console.WriteLine("Dice Rolled :" + diceNumber);
                 switch (playOption)
                 {
-                    case 0:
+                    case NO_PLAY:
                         Console.WriteLine("No Play");
                         break;
-                    case 1:
+                    case LADDER:
                         Console.WriteLine("Ladder");
                         this.position += this.diceNumber;
                         break;
-                    case 2:
+                    case SNAKE:
                         Console.WriteLine("Snake");
                         if (this.position > this.diceNumber)
                         {
